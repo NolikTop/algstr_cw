@@ -1,7 +1,7 @@
 namespace src.graph
 {
-    public class Vertex
+    public record Vertex
     {
-        
+        public string Name;
     }
 }
