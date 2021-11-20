@@ -18,5 +18,17 @@ namespace src.graph
 
             return result;
         }
+
+        public string ToStringOnlyEdges()
+        {
+            var simpleEdgesStrings = new DynamicArray<string>();
+            
+            foreach (var edge in Edges)
+            {
+                simpleEdgesStrings.Add(edge.Vertex1.Name + " " + edge.Vertex2.Name);
+            }
+            
+            return string.Join("\n", simpleEdgesStrings) + "\n" + Edges.Sum(edge => edge.Weight);
+        }
     }
 }

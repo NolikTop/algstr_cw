@@ -30,8 +30,7 @@ namespace src
         {
             var result = new Graph
             {
-                //Vertices = (DynamicArray<Vertex>)graph.Vertices.Clone()
-                Vertices = graph.Vertices
+                Vertices = (DynamicArray<Vertex>)graph.Vertices.Clone()
             };
 
             foreach (var vertex in result.Vertices)
@@ -39,8 +38,7 @@ namespace src
                 vertex.TreeElement = new TreeElement();
             }
 
-            //var edges = (DynamicArray<Edge>)graph.Edges.Clone();
-            var edges = graph.Edges;
+            var edges = (DynamicArray<Edge>)graph.Edges.Clone();
             BubbleSort(edges, new EdgesComparer());
             
             foreach (var edge in edges)
@@ -57,7 +55,7 @@ namespace src
                     throw new NullReferenceException("Вершина " + edge.Vertex2 + " не имеет ссылки на TreeElement");
                 }
 
-                if (tr1.Representative == tr2.Representative) continue;
+                if (tr1.Representative == tr2.Representative) continue; // если представители их компонент связности равны, значит они в одной компоненте связности и добавлять ребро не надо (иначе будет цикл)
                 
                 result.Edges.Add(edge);
                 tr1.Union(tr2);
