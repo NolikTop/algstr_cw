@@ -4,6 +4,11 @@ namespace src.graph
     {
         public Vertex Vertex1; // можно было бы сделать From и To, но граф не ориентированный
         public Vertex Vertex2; // поэтому так 
-        public int Weight; 
+        public int Weight;
+
+        public override string ToString()
+        {
+            return "(" + Vertex1 + "--" + Weight + "--" + Vertex2 + ")";
+        }
     }
 }

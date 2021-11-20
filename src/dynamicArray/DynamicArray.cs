@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace src.dynamicArray
 {
-    public class DynamicArray<T> : ICollection<T>
+    public class DynamicArray<T> : ICollection<T>, ICloneable
     {
         private T[] _internalArray = new T[2];
 
@@ -15,7 +15,7 @@ namespace src.dynamicArray
         public int Capacity
         {
             get => _capacity;
-            private set
+            set
             {
                 var newArray = new T[value];
                 _capacity = value;
@@ -93,6 +93,8 @@ namespace src.dynamicArray
             return -1;
         }
 
+        
+
         public bool Remove(T item)
         {
             var index = IndexOf(item);
@@ -128,6 +130,28 @@ namespace src.dynamicArray
             r += ">";
 
             return r;
+        }
+
+        public object Clone()
+        {
+            var newArr = new DynamicArray<T>
+            {
+                _internalArray = (T[])_internalArray.Clone(),
+                _capacity = _capacity,
+                Count = Count
+            };
+
+            return newArr;
+        }
+
+        // вдруг данный объект у нас уже есть. Если он уже есть его не добавляем, а возвращаем тот что в массиве
+        public T GetOrAdd(T value)
+        {
+            var index = IndexOf(value);
+            if (index != -1) return this[index];
+            
+            Add(value);
+            return value;
         }
 
         public IEnumerator<T> GetEnumerator()

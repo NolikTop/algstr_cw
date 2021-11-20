@@ -1,4 +1,5 @@
 ﻿using System;
+using src;
 using src.graph;
 
 namespace algstr_cp
@@ -16,7 +17,7 @@ namespace algstr_cp
             
             n = int.Parse(line);
 
-            for (int i = 0; i < n; ++i)
+            for (var i = 0; i < n; ++i)
             {
                 line = Console.ReadLine();
                 if (line is null) return;
@@ -26,16 +27,11 @@ namespace algstr_cp
                 var b = strings[1];
                 var weight = int.Parse(strings[2]);
 
-                var aVertex = new Vertex { Name = a };
-                var bVertex = new Vertex { Name = b }; // todo 
-                if (!graph.Vertices.Contains(aVertex))
-                {
-                    graph.Vertices.Add(aVertex);
-                }
-                if (!graph.Vertices.Contains(bVertex))
-                {
-                    graph.Vertices.Add(bVertex);
-                }
+                var aVertex = new Vertex(a);
+                var bVertex = new Vertex(b);
+
+                aVertex = graph.Vertices.GetOrAdd(aVertex);
+                bVertex = graph.Vertices.GetOrAdd(bVertex);
 
                 var edge = new Edge
                 {
@@ -46,10 +42,13 @@ namespace algstr_cp
                 
                 graph.Edges.Add(edge);
             }
+
+            Console.WriteLine("Input graph: ");
+            Console.WriteLine(graph.ToString());
+            Console.WriteLine();
             
-            //todo
-            
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Minimum spanning tree: ");
+            Console.WriteLine(KruskalAlgorithm.GetMinimumSpanningTree(graph));
         }
     }
 }
