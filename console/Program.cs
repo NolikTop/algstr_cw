@@ -12,7 +12,7 @@ namespace algstr_cp
     {
         static void Main(string[] args)
         {
-            const string path = @"/Users/noliktop/RiderProjects/algstr_cp/input.txt";
+            const string path = @"/Users/noliktop/RiderProjects/algstr_cw/input.txt";
 
             if (!File.Exists(path))
             {
