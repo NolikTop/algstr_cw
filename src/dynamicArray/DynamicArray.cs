@@ -46,6 +46,17 @@ namespace src.dynamicArray
                 _internalArray[index] = value;
             }
         }
+        
+        public DynamicArray(){}
+
+        public DynamicArray(IEnumerable<T> array)
+        {
+            var enumerable = array as T[] ?? array.ToArray();
+            
+            _internalArray = enumerable;
+            Count = enumerable.Length;
+            _capacity = Count;
+        }
 
         public void Add(T item)
         {

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using src.dynamicArray;
 
@@ -9,6 +10,31 @@ namespace src.graph
         public DynamicArray<Vertex> Vertices = new();
         public DynamicArray<Edge> Edges = new();
 
+        public Graph(){}
+
+        public Graph(DynamicArray<(string v1, string v2, int w)> edges)
+        {
+            foreach (var (v1, v2, w) in edges)
+            {
+                var aVertex = new Vertex(v1);
+                var bVertex = new Vertex(v2);
+
+                aVertex = Vertices.GetOrAdd(aVertex);
+                bVertex = Vertices.GetOrAdd(bVertex);
+
+                var e = new Edge
+                {
+                    Vertex1 = aVertex,
+                    Vertex2 = bVertex,
+                    Weight = w
+                };
+
+                Edges.Add(e);
+            }
+        }
+
+        public Graph(IEnumerable<(string v1, string v2, int w)> edges) : this(new DynamicArray<(string v1, string v2, int w)>(edges)){}
+        
         public override string ToString()
         {
             var result = string.Empty;

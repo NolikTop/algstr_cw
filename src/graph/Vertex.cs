@@ -1,12 +1,12 @@
 #nullable enable
-using src.tree;
+using src.disjointSet;
 
 namespace src.graph
 {
     public record Vertex
     {
         public string Name;
-        public TreeElement? TreeElement;
+        public DisjointSetElement? TreeElement;
 
         public Vertex(string name)
         {

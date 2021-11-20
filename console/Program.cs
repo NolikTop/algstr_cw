@@ -3,6 +3,7 @@ using System.IO;
 using System.Net.Mime;
 using System.Reflection;
 using src;
+using src.dynamicArray;
 using src.graph;
 
 namespace algstr_cp
@@ -17,9 +18,9 @@ namespace algstr_cp
             {
                 throw new FileNotFoundException("Укажите путь до файла с данными в коде");
             }
-
-            Graph graph = new();
-
+            
+            var edges = new DynamicArray<(string, string, int)>();
+            
             using (var file = new StreamReader(path))
             {
                 string line;
@@ -30,22 +31,12 @@ namespace algstr_cp
                     var b = strings[1];
                     var weight = int.Parse(strings[2]);
 
-                    var aVertex = new Vertex(a);
-                    var bVertex = new Vertex(b);
-
-                    aVertex = graph.Vertices.GetOrAdd(aVertex);
-                    bVertex = graph.Vertices.GetOrAdd(bVertex);
-
-                    var edge = new Edge
-                    {
-                        Vertex1 = aVertex,
-                        Vertex2 = bVertex,
-                        Weight = weight,
-                    };
-
-                    graph.Edges.Add(edge);
+                    edges.Add((a,b,weight));
                 }
             }
+            
+            Graph graph = new(edges);
+
             Console.WriteLine(KruskalAlgorithm.GetMinimumSpanningTree(graph).ToStringOnlyEdges());
         }
     }
