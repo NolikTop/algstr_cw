@@ -3,7 +3,7 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>algstr_cp</RootNamespace>
+        <RootNamespace>algstr_cw</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

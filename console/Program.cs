@@ -6,7 +6,7 @@ using src;
 using src.dynamicArray;
 using src.graph;
 
-namespace algstr_cp
+namespace algstr_cw
 {
     class Program
     {
