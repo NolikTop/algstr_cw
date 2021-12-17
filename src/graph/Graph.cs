@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using src.dynamicArray;
@@ -48,12 +49,17 @@ namespace src.graph
         public string ToStringOnlyEdges()
         {
             var simpleEdgesStrings = new DynamicArray<string>();
-            
+
             foreach (var edge in Edges)
             {
                 simpleEdgesStrings.Add(edge.Vertex1.Name + " " + edge.Vertex2.Name);
             }
             
+            KruskalAlgorithm.BubbleSort(
+                simpleEdgesStrings,
+                StringComparer.InvariantCulture
+            );
+
             return string.Join("\n", simpleEdgesStrings) + "\n" + Edges.Sum(edge => edge.Weight);
         }
     }

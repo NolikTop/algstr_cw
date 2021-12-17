@@ -10,7 +10,7 @@ namespace src
     public static class KruskalAlgorithm
     {
 
-        private static void BubbleSort<T>(DynamicArray<T> arr, IComparer<T> comparer)
+        public static void BubbleSort<T>(DynamicArray<T> arr, IComparer<T> comparer)
         {
             var n = arr.Count;
             
