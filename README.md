@@ -2,7 +2,7 @@
 
 Курсовая работа по предмету "Алгоритмы и структуры данных".
 
-Реализован [алгоритм Краскала](https://github.com/NolikTop/algstr_cw/blob/master/src/KruskalAlgorithm.cs) для поиска минимального остова. 
+Реализован [алгоритм Краскала](https://github.com/NolikTop/algstr_cw/blob/master/src/KruskalAlgorithm.cs) для поиска минимального остова, а также [алгоритмы обхода графа DFS и BFS](https://github.com/NolikTop/algstr_cw/blob/master/src/Traversal.cs). 
 
 Обратите внимание, что файл [input.txt](https://github.com/NolikTop/algstr_cw/blob/master/input.txt) копируется при билде в папку с скомпилированным проектом 
 (при компиляции [console](https://github.com/NolikTop/algstr_cw/tree/master/console)).
