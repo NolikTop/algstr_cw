@@ -12,7 +12,8 @@ namespace algstr_cw
     {
         static void Main(string[] args)
         {
-            // если нужно иметь абсолютный путь до файла, то вот: const string path = @"/Users/noliktop/RiderProjects/algstr_cw/input.txt";
+            // если нужно иметь абсолютный путь до файла, то вот:
+            // const string path = @"/Users/noliktop/RiderProjects/algstr_cw/input.txt";
             const string path = "input.txt"; 
             
             if (!File.Exists(path))
