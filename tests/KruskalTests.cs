@@ -75,5 +75,21 @@ B E
 G E
 39", mst.ToStringOnlyEdges());
         }
+        
+        [Test]
+        public void TestSortOutput()
+        {
+            var g = new Graph(new DynamicArray<(string v1, string v2, int w)>{
+                ("A", "B", 3),
+                ("B", "C", 2),
+                ("A", "C", 1),
+            });
+
+            var mst = KruskalAlgorithm.GetMinimumSpanningTree(g);
+            Assert.AreEqual(
+                @"A C
+B C
+3", mst.ToStringOnlyEdges());
+        }
     }
 }

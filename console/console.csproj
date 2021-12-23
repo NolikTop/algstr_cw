@@ -7,7 +7,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\src.csproj" />
+        <ProjectReference Include="..\src\src.csproj"/>
+        <Content Include="..\*.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
 </Project>

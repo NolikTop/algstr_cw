@@ -12,11 +12,12 @@ namespace algstr_cw
     {
         static void Main(string[] args)
         {
-            const string path = @"/Users/noliktop/RiderProjects/algstr_cw/input.txt";
-
+            // если нужно иметь абсолютный путь до файла, то вот: const string path = @"/Users/noliktop/RiderProjects/algstr_cw/input.txt";
+            const string path = "input.txt"; 
+            
             if (!File.Exists(path))
             {
-                throw new FileNotFoundException("Укажите путь до файла с данными в коде");
+                throw new FileNotFoundException("Укажите путь до файла с данными (input.txt) в коде в константе path");
             }
             
             var edges = new DynamicArray<(string, string, int)>();
