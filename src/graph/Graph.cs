@@ -34,6 +34,14 @@ namespace src.graph
             }
         }
 
+        public void SetNotUsedVertices()
+        {
+            foreach (var vertex in Vertices)
+            {
+                vertex.Used = false;
+            }
+        }
+
         public Graph(IEnumerable<(string v1, string v2, int w)> edges) : this(new DynamicArray<(string v1, string v2, int w)>(edges)){}
         
         public override string ToString()

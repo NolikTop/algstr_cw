@@ -104,8 +104,6 @@ namespace src.dynamicArray
             return -1;
         }
 
-        
-
         public bool Remove(T item)
         {
             var index = IndexOf(item);
