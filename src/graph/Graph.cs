@@ -63,7 +63,7 @@ namespace src.graph
                 simpleEdgesStrings.Add(edge.Vertex1.Name + " " + edge.Vertex2.Name);
             }
             
-            KruskalAlgorithm.BubbleSort(
+            BubbleSort.Sort(
                 simpleEdgesStrings,
                 new LexicographicOrderComparer()
             );

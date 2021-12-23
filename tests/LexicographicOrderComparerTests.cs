@@ -25,7 +25,7 @@ namespace tests
                     "A"
                 };
             
-            KruskalAlgorithm.BubbleSort(ar, new LexicographicOrderComparer());
+            BubbleSort.Sort(ar, new LexicographicOrderComparer());
             
             Assert.AreEqual("A,B,C,E", ar.ToElementsString());
         }
@@ -46,7 +46,7 @@ namespace tests
                     "CAA"
                 };
             
-            KruskalAlgorithm.BubbleSort(ar, new LexicographicOrderComparer());
+            BubbleSort.Sort(ar, new LexicographicOrderComparer());
             
             Assert.AreEqual("AAA,AAB,ABA,ABB,BAA,BAB,BAG,BBB,CAA", ar.ToElementsString());
         }
@@ -71,7 +71,7 @@ namespace tests
                     "CAA"
                 };
             
-            KruskalAlgorithm.BubbleSort(ar, new LexicographicOrderComparer());
+            BubbleSort.Sort(ar, new LexicographicOrderComparer());
             
             Assert.AreEqual("A,AAA,AAAB,AAB,AB,ABA,ABB,BA,BAA,BAB,BAG,BBB,CAA", ar.ToElementsString());
         }

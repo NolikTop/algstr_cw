@@ -10,21 +10,6 @@ namespace src
     public static class KruskalAlgorithm
     {
 
-        public static void BubbleSort<T>(DynamicArray<T> arr, IComparer<T> comparer)
-        {
-            var n = arr.Count;
-            
-            for (var i = 0; i < n - 1; i++)
-            {
-                for (var j = 0; j < n - i - 1; j++)
-                {
-                    if (comparer.Compare(arr[j], arr[j+1]) > 0)
-                    {
-                        (arr[j], arr[j + 1]) = (arr[j + 1], arr[j]);
-                    }
-                }
-            }
-        }
         
         public static Graph GetMinimumSpanningTree(Graph graph)
         {
@@ -39,7 +24,7 @@ namespace src
             }
 
             var edges = (DynamicArray<Edge>)graph.Edges.Clone();
-            BubbleSort(edges, new EdgesComparer());
+            BubbleSort.Sort(edges, new EdgesComparer());
             
             foreach (var edge in edges)
             {
