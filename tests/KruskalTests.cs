@@ -16,7 +16,7 @@ namespace tests
             var g = new Graph(new DynamicArray<(string v1, string v2, int w)>{
                 ("A", "B", 3),
                 ("B", "C", 2),
-                ("A", "C", 1),
+                ("A", "C", 1)
             });
 
             var mst = KruskalAlgorithm.GetMinimumSpanningTree(g);
@@ -40,6 +40,19 @@ B C
                 @"A B
 B C
 3", mst.ToStringOnlyEdges());
+            
+            g = new Graph(new DynamicArray<(string v1, string v2, int w)>{
+                ("AB", "B", 3),
+                ("B", "C", 2),
+                ("A", "C", 1)
+            });
+
+            mst = KruskalAlgorithm.GetMinimumSpanningTree(g);
+            Assert.AreEqual(
+                @"A C
+AB B
+B C
+6", mst.ToStringOnlyEdges());
         }
 
         [Test]
