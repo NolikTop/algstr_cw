@@ -7,6 +7,7 @@ namespace src.graph
     {
         public string Name;
         public DisjointSetElement? TreeElement;
+        public bool Used;
 
         public Vertex(string name)
         {

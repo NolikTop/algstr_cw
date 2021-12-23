@@ -135,12 +135,17 @@ namespace src.dynamicArray
             }
             else
             {
-                r += string.Join(",", this);
+                r += ToElementsString();
             }
 
             r += ">";
 
             return r;
+        }
+
+        public string ToElementsString()
+        {
+           return string.Join(",", this);
         }
 
         public object Clone()

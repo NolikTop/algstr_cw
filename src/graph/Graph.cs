@@ -57,7 +57,7 @@ namespace src.graph
             
             KruskalAlgorithm.BubbleSort(
                 simpleEdgesStrings,
-                StringComparer.InvariantCulture
+                new LexicographicOrderComparer()
             );
 
             return string.Join("\n", simpleEdgesStrings) + "\n" + Edges.Sum(edge => edge.Weight);
