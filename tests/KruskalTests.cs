@@ -25,6 +25,22 @@ namespace tests
 B C
 3", mst.ToStringOnlyEdges());
         }
+        
+        [Test]
+        public void TestSortOutput()
+        {
+            var g = new Graph(new DynamicArray<(string v1, string v2, int w)>{
+                ("A", "B", 2),
+                ("B", "C", 1),
+                ("A", "C", 3)
+            });
+
+            var mst = KruskalAlgorithm.GetMinimumSpanningTree(g);
+            Assert.AreEqual(
+                @"A B
+B C
+3", mst.ToStringOnlyEdges());
+        }
 
         [Test]
         public void FirstTestFromWiki()
@@ -41,10 +57,10 @@ B C
 
             var mst = KruskalAlgorithm.GetMinimumSpanningTree(g);
             Assert.AreEqual(
-@"A E
-C D
-A B
+@"A B
+A E
 B C
+C D
 11", mst.ToStringOnlyEdges());
         }
 
@@ -67,29 +83,13 @@ B C
 
             var mst = KruskalAlgorithm.GetMinimumSpanningTree(g);
             Assert.AreEqual(
-@"A D
-E C
-D F
-A B
+@"A B
+A D
 B E
+D F
+E C
 G E
 39", mst.ToStringOnlyEdges());
-        }
-        
-        [Test]
-        public void TestSortOutput()
-        {
-            var g = new Graph(new DynamicArray<(string v1, string v2, int w)>{
-                ("A", "B", 3),
-                ("B", "C", 2),
-                ("A", "C", 1),
-            });
-
-            var mst = KruskalAlgorithm.GetMinimumSpanningTree(g);
-            Assert.AreEqual(
-                @"A C
-B C
-3", mst.ToStringOnlyEdges());
         }
     }
 }
